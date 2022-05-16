@@ -7,11 +7,11 @@ WORKDIR /src
 COPY ["/dotnet/SampleWeb/SampleWeb.csproj", "/SampleWeb/"]
 RUN dotnet restore "/SampleWeb/SampleWeb.csproj"
 COPY . .
-WORKDIR "/src/SampleWeb"
-RUN dotnet build "./SampleWeb.csproj" -c Release -o /app
+WORKDIR /src/SampleWeb
+RUN dotnet build /SampleWeb.csproj -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "./SampleWeb.csproj" -c Release -o /app
+RUN dotnet publish /SampleWeb.csproj -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
