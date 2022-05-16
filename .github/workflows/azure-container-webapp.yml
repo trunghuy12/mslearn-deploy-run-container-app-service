@@ -60,4 +60,4 @@ jobs:
         with:
           push: true
           tags: huybtregistry.azurecr.io/webimage:latest
-          file: ./donet/Dockerfile
+          file: ./Dockerfile
